@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ensaio de Bateria de Samba</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🥁 Ensaio de Bateria de Samba</h1>
+            <p>Escolha uma bossa para começar a ensaiar</p>
+        </header>
+
+        <div class="bossas-grid">
+            {% for bossa in bossas %}
+            <a href="{{ url_for('player', bossa_id=bossa.id) }}" class="bossa-card">
+                <h2>{{ bossa.nome }}</h2>
+                <p>{{ bossa.descricao }}</p>
+                <p style="margin-top: 15px; color: #4A90E2; font-weight: bold;">
+                    {{ bossa.instrumentos|length }} instrumentos disponíveis
+                </p>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

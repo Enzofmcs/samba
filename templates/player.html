@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ bossa.nome }} - Ensaio de Bateria de Samba</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🥁 {{ bossa.nome }}</h1>
+            <p>{{ bossa.descricao }}</p>
+        </header>
+
+        <div class="player-container">
+            <div class="player-header">
+                <h2>Controle de Instrumentos</h2>
+                <p>Clique nos instrumentos para ativá-los ou desativá-los</p>
+            </div>
+
+            <div class="controles-principais">
+                <button id="btn-play" class="btn btn-play">▶ Play</button>
+                <button id="btn-pause" class="btn btn-pause">⏸ Pause</button>
+                <button id="btn-stop" class="btn btn-stop">⏹ Stop</button>
+            </div>
+
+            <div class="instrumentos-grid">
+                {% for inst_id in ordem_instrumentos %}
+                    {% set instrumento = bossa.instrumentos[inst_id] %}
+                    <div class="instrumento-card ativo" data-instrumento="{{ inst_id }}">
+                        <h3>{{ instrumento.nome }}</h3>
+                        <span class="instrumento-status">Ativo</span>
+                        <audio 
+                            id="audio-{{ inst_id }}" 
+                            src="{{ url_for('static', filename=instrumento.arquivo) }}" 
+                            loop
+                            preload="auto"
+                        ></audio>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="{{ url_for('index') }}" class="btn-voltar">← Voltar para lista de bossas</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/player.js') }}"></script>
+</body>
+</html>

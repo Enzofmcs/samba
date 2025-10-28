@@ -1,0 +1,273 @@
+/* Reset e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores azul pastel */
+    --azul-claro: #A8D8EA;
+    --azul-medio: #6CB4E8;
+    --azul-escuro: #4A90E2;
+    
+    /* Cores amarelo pastel */
+    --amarelo-claro: #FFF9C4;
+    --amarelo-medio: #FFE082;
+    --amarelo-escuro: #FFD54F;
+    
+    /* Cores neutras */
+    --branco: #FFFFFF;
+    --cinza-claro: #F5F5F5;
+    --cinza-medio: #E0E0E0;
+    --texto: #333333;
+    --texto-claro: #666666;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--azul-claro) 0%, var(--amarelo-claro) 100%);
+    min-height: 100vh;
+    color: var(--texto);
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--branco);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: var(--texto-claro);
+}
+
+/* Container principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Grid de bossas */
+.bossas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Card de bossa */
+.bossa-card {
+    background: var(--branco);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--texto);
+    border: 3px solid transparent;
+}
+
+.bossa-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--azul-medio);
+}
+
+.bossa-card h2 {
+    color: var(--azul-escuro);
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.bossa-card p {
+    color: var(--texto-claro);
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Player */
+.player-container {
+    background: var(--branco);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.player-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 3px solid var(--amarelo-medio);
+}
+
+.player-header h2 {
+    color: var(--azul-escuro);
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+.player-header p {
+    color: var(--texto-claro);
+    font-size: 1.1em;
+}
+
+/* Controles principais */
+.controles-principais {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-play {
+    background: var(--azul-medio);
+    color: var(--branco);
+}
+
+.btn-play:hover {
+    background: var(--azul-escuro);
+    transform: scale(1.05);
+}
+
+.btn-pause {
+    background: var(--amarelo-medio);
+    color: var(--texto);
+}
+
+.btn-pause:hover {
+    background: var(--amarelo-escuro);
+    transform: scale(1.05);
+}
+
+.btn-stop {
+    background: var(--cinza-medio);
+    color: var(--texto);
+}
+
+.btn-stop:hover {
+    background: #BDBDBD;
+    transform: scale(1.05);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Grid de instrumentos */
+.instrumentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* Card de instrumento */
+.instrumento-card {
+    background: linear-gradient(135deg, var(--azul-claro) 0%, var(--amarelo-claro) 100%);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 3px solid transparent;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.instrumento-card.ativo {
+    background: linear-gradient(135deg, var(--azul-medio) 0%, var(--amarelo-medio) 100%);
+    border-color: var(--azul-escuro);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.instrumento-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.instrumento-card h3 {
+    font-size: 1.5em;
+    color: var(--texto);
+    margin-bottom: 15px;
+}
+
+.instrumento-status {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    background: var(--branco);
+    color: var(--texto-claro);
+}
+
+.instrumento-card.ativo .instrumento-status {
+    background: var(--azul-escuro);
+    color: var(--branco);
+}
+
+/* Botão voltar */
+.btn-voltar {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--cinza-medio);
+    color: var(--texto);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-voltar:hover {
+    background: #BDBDBD;
+    transform: translateX(-5px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+    
+    .bossas-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .instrumentos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .controles-principais {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
